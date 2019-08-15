@@ -12,10 +12,10 @@ cargarEventListeners();
 
 function cargarEventListeners() {
     //Dispara cuando se presiona agregar carrito
-    cursos.addEventListener('click', (e)=>{carro.comprarCurso(e)});
+    cursos.addEventListener('click', (e)=>{carro.comprarProducto(e)});
 
     //Cuando se elimina curso carrito
-    carrito.addEventListener('click', (e)=>{carro.eliminarCurso(e)});
+    carrito.addEventListener('click', (e)=>{carro.eliminarProducto(e)});
     // //Al vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', (e)=>{carro.vaciarCarrito(e)});
     // //Al cargar el documento, mostrar el LS

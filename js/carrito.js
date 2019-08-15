@@ -1,7 +1,7 @@
 class Carrito {
     
     //Añade el curso al carrito
-    comprarCurso(e) {
+    comprarProducto(e) {
         e.preventDefault();
         //Delegation para agregar carrito
         if (e.target.classList.contains('agregar-carrito')) {
@@ -9,12 +9,12 @@ class Carrito {
 
             //console.log(curso);
             //Enviamos curso seleccionado para tomar sus datos
-            this.leerDatosCurso(curso);
+            this.leerDatosProducto(curso);
         }
     }
 
     //leer datos del curso
-    leerDatosCurso(curso) {
+    leerDatosProducto(curso) {
         const infoCurso = {
             imagen: curso.querySelector('img').src,
             titulo: curso.querySelector('h4').textContent,
@@ -23,7 +23,7 @@ class Carrito {
             cantidad: 1
         }
         let cursosLS;
-        cursosLS = this.obtenerCursosLocalStorage();
+        cursosLS = this.obtenerProductosLocalStorage();
         cursosLS.forEach(function(cursoLS){
             if(cursoLS.id === infoCurso.id){
                 cursosLS = cursoLS.id;
@@ -58,11 +58,11 @@ class Carrito {
             </td>
         `;
         listaProductos.appendChild(row);
-        this.guardarCursoLocalStorage(curso);
+        this.guardarProductoLocalStorage(curso);
     }
 
     //Eliminar el curso del carrito en el DOM
-    eliminarCurso(e) {
+    eliminarProducto(e) {
         e.preventDefault();
         let curso, cursoID;
         if (e.target.classList.contains('borrar-curso')) {
@@ -70,15 +70,15 @@ class Carrito {
             curso = e.target.parentElement.parentElement;
             cursoID = curso.querySelector('a').getAttribute('data-id');
         }        
-        this.eliminarCursoLocalStorage(cursoID);
+        this.eliminarProductoLocalStorage(cursoID);
         this.calcularTotal();
     }
 
     //Almacenando en el ls
-    guardarCursoLocalStorage(curso) {
+    guardarProductoLocalStorage(curso) {
         let cursos;
         //Toma valor de un arreglo con datos del LS
-        cursos = this.obtenerCursosLocalStorage();
+        cursos = this.obtenerProductosLocalStorage();
         //Agregar el curso al carrito
         cursos.push(curso);
         //Agregamos al LS
@@ -87,7 +87,7 @@ class Carrito {
     }
 
     //Comprueba que haya elementos en LS
-    obtenerCursosLocalStorage() {
+    obtenerProductosLocalStorage() {
         let cursosLS;
 
         //Comprobados si hay algo en ls
@@ -117,7 +117,7 @@ class Carrito {
     //Imprime los cursos de LS en el carrito
     leerLocalStorage() {
         let cursosLS;
-        cursosLS = this.obtenerCursosLocalStorage();
+        cursosLS = this.obtenerProductosLocalStorage();
 
         cursosLS.forEach(function (curso) {
             //Construir el template
@@ -140,7 +140,7 @@ class Carrito {
     //Imprime los cursos de LS en el carrito
     leerLocalStorageCompra() {
         let cursosLS;
-        cursosLS = this.obtenerCursosLocalStorage();
+        cursosLS = this.obtenerProductosLocalStorage();
         cursosLS.forEach(function (curso) {
             //Construir el template        
             const row = document.createElement('tr');
@@ -164,10 +164,10 @@ class Carrito {
     }
 
     //Eliminar curso por ID del LS
-    eliminarCursoLocalStorage(cursoID){
+    eliminarProductoLocalStorage(cursoID){
         let cursosLS;
         //Obtenemos el arreglo de cursos
-        cursosLS = this.obtenerCursosLocalStorage();
+        cursosLS = this.obtenerProductosLocalStorage();
         //Comparamos el id de curso borrado con LS
         cursosLS.forEach(function(cursoLS, index){
             if(cursoLS.id === cursoID){
@@ -187,7 +187,7 @@ class Carrito {
     procesarPedido(e){
         e.preventDefault();
         console.log();
-        if(this.obtenerCursosLocalStorage().length === 0){            
+        if(this.obtenerProductosLocalStorage().length === 0){            
                 Swal.fire({
                     type: 'error',
                     title: 'Oops...',
@@ -209,7 +209,7 @@ class Carrito {
             curso = e.target.parentElement.parentElement;
             id = curso.querySelector('a').getAttribute('data-id');
             cantidad = curso.querySelector('input').value;
-            let cursosLS = this.obtenerCursosLocalStorage();
+            let cursosLS = this.obtenerProductosLocalStorage();
             cursosLS.forEach(function (cursoLS, index) {
                 if (cursoLS.id === id) {
                     cursoLS.cantidad = cantidad;
@@ -224,7 +224,7 @@ class Carrito {
     calcularTotal() {
         let cursosLS;
         let total = 0, igv = 0, subtotal = 0;
-        cursosLS = this.obtenerCursosLocalStorage();
+        cursosLS = this.obtenerProductosLocalStorage();
         for (let index = 0; index < cursosLS.length; index++) {
             let element = Number(cursosLS[index].precio * cursosLS[index].cantidad);
             total = total + element;
@@ -239,25 +239,6 @@ class Carrito {
         document.getElementById('total').innerHTML = "S/. " + total.toFixed(2);
     }
 
-    procesarCompra(e){
-        e.preventDefault();
-        console.log();
-        if(this.obtenerCursosLocalStorage().length === 0){            
-            Swal.fire({
-                type: 'error',
-                title: 'Oops...',
-                text: 'No hay productos, regresa a comprar',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            setTimeout(() => {
-                location.href="index.html";    
-            }, 2000);
-            
-        }
-        else{
-            location.href="compra.html";
-        }
-    }
+    
 
 }
