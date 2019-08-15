@@ -57,7 +57,7 @@ class Carrito {
                 <a href="#" class="borrar-curso fas fa-times-circle" data-id="${curso.id}"></a>
             </td>
         `;
-        listaCursos.appendChild(row);
+        listaProductos.appendChild(row);
         this.guardarCursoLocalStorage(curso);
     }
 
@@ -104,8 +104,8 @@ class Carrito {
     vaciarCarrito(e) {
         e.preventDefault();
         
-        while (listaCursos.firstChild) {
-            listaCursos.removeChild(listaCursos.firstChild);
+        while (listaProductos.firstChild) {
+            listaProductos.removeChild(listaProductos.firstChild);
         }
         
         //Vaciar LS
@@ -132,7 +132,7 @@ class Carrito {
                     <a href="#" class="borrar-curso fas fa-times-circle" data-id="${curso.id}"></a>
                 </td>
             `;
-            listaCursos.appendChild(row);
+            listaProductos.appendChild(row);
         });
 
     }

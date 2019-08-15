@@ -2,7 +2,7 @@
 const carro = new Carrito();
 const carrito = document.getElementById('carrito');
 const cursos = document.getElementById('lista-productos');
-const listaCursos = document.querySelector('#lista-carrito tbody');
+const listaProductos = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 const procesarPedidoBtn = document.getElementById('procesar-pedido');
 
