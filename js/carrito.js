@@ -74,6 +74,20 @@ class Carrito {
         this.calcularTotal();
     }
 
+    //Elimina los productos del carrito
+    vaciarCarrito(e) {
+        e.preventDefault();
+        
+        while (listaProductos.firstChild) {
+            listaProductos.removeChild(listaProductos.firstChild);
+        }
+        
+        //Vaciar LS
+        this.vaciarLocalStorage();
+
+        return false;
+    }
+
     //Almacenando en el ls
     guardarProductoLocalStorage(curso) {
         let cursos;
@@ -100,19 +114,7 @@ class Carrito {
         return cursosLS;
     }
 
-    //Elimina los productos del carrito
-    vaciarCarrito(e) {
-        e.preventDefault();
-        
-        while (listaProductos.firstChild) {
-            listaProductos.removeChild(listaProductos.firstChild);
-        }
-        
-        //Vaciar LS
-        this.vaciarLocalStorage();
-
-        return false;
-    }
+    
 
     //Imprime los cursos de LS en el carrito
     leerLocalStorage() {
