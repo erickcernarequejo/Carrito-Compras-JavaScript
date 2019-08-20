@@ -53,7 +53,7 @@ class Carrito {
             <td>${producto.titulo}</td>
             <td>${producto.precio}</td>
             <td>
-                <a href="#" class="borrar-curso fas fa-times-circle" data-id="${producto.id}"></a>
+                <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
             </td>
         `;
         listaProductos.appendChild(row);
@@ -65,7 +65,7 @@ class Carrito {
     eliminarProducto(e){
         e.preventDefault();
         let producto, productoID;
-        if(e.target.classList.contains('borrar-curso')){
+        if(e.target.classList.contains('borrar-producto')){
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
             productoID = producto.querySelector('a').getAttribute('data-id');
@@ -125,7 +125,7 @@ class Carrito {
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
-                    <a href="#" class="borrar-curso fas fa-times-circle" data-id="${producto.id}"></a>
+                    <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
                 </td>
             `;
             listaProductos.appendChild(row);
@@ -149,7 +149,7 @@ class Carrito {
                 </td>
                 <td>${producto.precio * producto.cantidad}</td>
                 <td>
-                    <a href="#" class="borrar-curso fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
+                    <a href="#" class="borrar-producto fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
                 </td>
             `;
             listaCompra.appendChild(row);
