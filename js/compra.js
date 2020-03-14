@@ -50,7 +50,7 @@ function procesarCompra() {
     else {
         
         (function () {
-            emailjs.init("aqui va el user id");
+            emailjs.init("user_CEozz2F39lJJOLF5mJiDA");
         })();
 
         var myform = $("form#procesar-pago");
