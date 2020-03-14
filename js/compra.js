@@ -38,7 +38,7 @@ function procesarCompra() {
             window.location = "index.html";
         })
     }
-    else if(cliente.value === '' || correo.value === ''){
+    else if (cliente.value === '' || correo.value === '') {
         Swal.fire({
             type: 'error',
             title: 'Oops...',
