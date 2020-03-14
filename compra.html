@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/popper.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/sweetalert2.min.css">
 
     <title>Carrito Compras en JavaScript</title>
-    
+
 </head>
 
 <body>
@@ -38,23 +39,23 @@
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
-                    <form id="procesar-pago" action="#">
+                    <form id="procesar-pago" action="#" method="post" name="myForm">
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control" id="cliente"
-                                    placeholder="Ingresa nombre cliente">
+                                    placeholder="Ingresa nombre cliente" name="to_name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo">
+                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
                             </div>
                         </div>
 
-                        <div id="carrito" class="table-responsive">
-                            <table class="table" id="lista-compra">
+                        <div id="carrito" class="form-group table-responsive" >
+                            <table class="table" id="lista-compra" >
                                 <thead>
                                     <tr>
                                         <th scope="col">Imagen</th>
@@ -66,7 +67,7 @@
                                     </tr>
 
                                 </thead>
-                                <tbody>
+                                <tbody >
 
                                 </tbody>
                                 <tr>
@@ -86,7 +87,7 @@
                                 <tr>
                                     <th colspan="4" scope="col" class="text-right">TOTAL :</th>
                                     <th scope="col">
-                                        <p id="total"></p>
+                                        <input id="total" name="monto" class="font-weight-bold border-0" readonly style="background-color: white;"></input>
                                     </th>
                                     <!-- <th scope="col"></th> -->
                                 </tr>
@@ -103,7 +104,7 @@
                                 <a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                <a href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a>
+                                <button href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</button>
                             </div>
                         </div>
                     </form>
@@ -126,8 +127,14 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweetalert2.min.js"></script>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+
     <script src="js/carrito.js"></script>
     <script src="js/compra.js"></script>
+
 
 </body>
 

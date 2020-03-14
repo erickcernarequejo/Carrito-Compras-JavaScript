@@ -211,7 +211,7 @@ class Carrito {
 
         document.getElementById('subtotal').innerHTML = "S/. " + subtotal;
         document.getElementById('igv').innerHTML = "S/. " + igv;
-        document.getElementById('total').innerHTML = "S/. " + total.toFixed(2);
+        document.getElementById('total').value = "S/. " + total.toFixed(2);
     }
 
     obtenerEvento(e) {
