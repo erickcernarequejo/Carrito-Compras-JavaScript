@@ -87,16 +87,9 @@ function procesarCompra() {
                     // myform.find("button").text("Send");
                 });
 
-
             return false;
 
-
         });
-
-
-
-
-
 
     }
 }
