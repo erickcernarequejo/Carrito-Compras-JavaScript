@@ -49,6 +49,7 @@ function procesarCompra() {
     }
     else {
         
+        //aqui se coloca el user id generado en el emailJS
         (function () {
             emailjs.init("user_CEozz2F39lJJOLF5mJiDA");
         })();
