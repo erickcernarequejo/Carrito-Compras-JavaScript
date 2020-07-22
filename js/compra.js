@@ -22,7 +22,6 @@ function cargarEventos() {
     carrito.addEventListener('change', (e) => { compra.obtenerEvento(e) });
     carrito.addEventListener('keyup', (e) => { compra.obtenerEvento(e) });
 
-
 }
 
 function procesarCompra() {
@@ -48,15 +47,43 @@ function procesarCompra() {
         })
     }
     else {
-        
+
         //aqui se coloca el user id generado en el emailJS
         (function () {
             emailjs.init("user_CEozz2F39lJJOLF5mJiDA");
         })();
 
+        //El campo {{detalleCompra}} es el que se añadió en la plantilla de emailjs 
+        /* 
+        Hola {{destinatario}},
+
+        Hemos recibido tu pedido de compra, en un plazo de 1 semana te enviaremos los productos solicitados.
+
+        El monto total de su compra es : {{monto}}.
+
+        {{detalleCompra}}
+
+
+        Erick Cerna
+        */
+
+        /* AGREGAR DATOS DE FORMA RAPIDA A UN TEXT AREA */
+        let cadena = "";
+        productosLS = compra.obtenerProductosLocalStorage();
+        productosLS.forEach(function (producto) {
+            cadena += `
+                 Producto : ${producto.titulo}
+                 Precio : ${producto.precio}
+                 Cantidad: ${producto.cantidad}
+                 
+                `;
+        });
+        document.getElementById('detalleCompra').innerHTML = cadena;
+        /* ------------------------- */
+
         var myform = $("form#procesar-pago");
 
-        myform.submit( (event) => {
+        myform.submit((event) => {
             event.preventDefault();
 
             // Change to your service ID, or keep using the default service
