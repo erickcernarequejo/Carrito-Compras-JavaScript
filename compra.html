@@ -39,7 +39,7 @@
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
-                    <form id="procesar-pago" action="#" method="post">
+                    <form id="procesar-pago">
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
@@ -104,13 +104,12 @@
                                 <a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                <button href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</button>
+                                <input type="submit" class="btn btn-success btn-block" id="procesar-compra" value="Realizar compra">
                             </div>
                         </div>
 
                         <!-- CONCATENAR DATOS EN INPUT -->
-                            <textarea name="detalleCompra" id="detalleCompra" cols="50" rows="10" hidden></textarea>
-                        
+                            <!-- <textarea name="detalleCompra" id="detalleCompra" cols="60" rows="10" ></textarea> -->
                     </form>
 
 
