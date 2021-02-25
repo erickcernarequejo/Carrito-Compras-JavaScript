@@ -50,27 +50,25 @@ function procesarCompra() {
         //aqui se coloca el user id generado en el emailJS
         emailjs.init('user_CEozz2F39lJJOLF5mJiDA')
 
-        /* AGREGAR DATOS DE FORMA RAPIDA A UN TEXT AREA */
+        /* AGREGAR DATOS DETALLE DEL PEDIDO A UN TEXT AREA */
         const textArea = document.createElement('textarea');
         textArea.id = "detalleCompra";
         textArea.name = "detalleCompra";
         textArea.cols = 60;
         textArea.rows = 10;
-        textArea.hidden = false;
+        textArea.hidden = true;
         productosLS = compra.obtenerProductosLocalStorage();
         productosLS.forEach(function (producto) {
             textArea.innerHTML += `
-                --------------------------------------------- <br>
                  Producto : ${producto.titulo} <br>
                  Precio : ${producto.precio} <br>
-                 Cantidad: ${producto.cantidad} <br><br>
+                 Cantidad: ${producto.cantidad} <br>
                 --------------------------------------------- <br>
                 `;
         });
 
         carrito.appendChild(textArea);
 
-        // document.getElementById('detalleCompra').innerHTML = cadena;
         /* ------------------------- */
 
         document.getElementById('procesar-pago')
