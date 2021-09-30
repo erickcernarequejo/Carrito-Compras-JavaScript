@@ -28,7 +28,7 @@ This project is licensed by MIT - see the [LICENSE.md](LICENSE) file for more de
 ## Expressions of Gratitude 🎁
 
 * Tell others about this project 📢
-* Invite a beer 🍺 or a coffee ☕ to the creator.
+* Invite a beer 🍺 or a coffee ☕ to the creator with [Paypal](https://www.paypal.com/paypalme/ECernaRequejo)
 
 
 
