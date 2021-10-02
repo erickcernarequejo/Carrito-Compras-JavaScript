@@ -146,6 +146,5 @@ function generarTabla(productosLS) {
 
     tabla.appendChild(body);
     div.appendChild(tabla);
-
     return div;
 }
