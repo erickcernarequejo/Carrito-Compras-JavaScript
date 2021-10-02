@@ -58,14 +58,21 @@ function procesarCompra() {
         textArea.rows = 10;
         textArea.hidden = true;
         productosLS = compra.obtenerProductosLocalStorage();
-        productosLS.forEach(function (producto) {
-            textArea.innerHTML += `
-                 Producto : ${producto.titulo} <br>
-                 Precio : ${producto.precio} <br>
-                 Cantidad: ${producto.cantidad} <br>
-                --------------------------------------------- <br>
-                `;
-        });
+
+        //Send email option 1
+        // productosLS.forEach(function (producto) {
+        //     textArea.innerHTML += `
+        //          Producto : ${producto.titulo} <br>
+        //          Precio : ${producto.precio} <br>
+        //          Cantidad: ${producto.cantidad} <br>
+        //         --------------------------------------------- <br>
+        //         `;
+        // });
+        //End option 1
+
+        //Send email option 2
+        textArea.innerHTML = generarTabla(productosLS).innerHTML;
+        //End option 2
 
         carrito.appendChild(textArea);
 
@@ -101,8 +108,44 @@ function procesarCompra() {
                         alert("Error al enviar el email\r\n Response:\n " + JSON.stringify(err));
                     });
             });
-
-
     }
 }
 
+
+function generarTabla(productosLS) {
+    let div = document.createElement("div");
+
+    let tabla = document.createElement("table");
+    
+    tabla.innerHTML += `<table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Sub total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>`;
+
+    const body = tabla.childNodes[3];
+
+    // productosLS = compra.obtenerProductosLocalStorage();
+    productosLS.forEach(producto => {
+        const row = document.createElement("tr");
+        row.innerHTML += `
+                            <td>${producto.titulo}</td>
+                            <td>${producto.precio}</td>
+                            <td>${producto.cantidad}</td>
+                            <td>${producto.precio * producto.cantidad}</td>
+                        `;
+        body.appendChild(row);
+    });
+
+    tabla.appendChild(body);
+    div.appendChild(tabla);
+
+    return div;
+}
